@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://djpuim0irbnix"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 85.0
+offset_top = 537.0
+offset_right = 766.0
+offset_bottom = 598.0
+text = "Type here"
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+offset_left = 93.0
+offset_top = 94.0
+offset_right = 597.0
+offset_bottom = 474.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VScrollBar"]
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 334.0
+offset_bottom = 329.0
