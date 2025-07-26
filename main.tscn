@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://djpuim0irbnix"]
+[gd_scene load_steps=2 format=3 uid="uid://djpuim0irbnix"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://b6e418hcnedil" path="res://main.gd" id="1_ig7tw"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ig7tw")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_left = 85.0
@@ -9,15 +14,64 @@ offset_right = 766.0
 offset_bottom = 598.0
 text = "Type here"
 
-[node name="VScrollBar" type="VScrollBar" parent="."]
-offset_left = 93.0
-offset_top = 94.0
-offset_right = 597.0
-offset_bottom = 474.0
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 85.0
+offset_top = 137.0
+offset_right = 555.0
+offset_bottom = 512.0
+text = "hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+hello there
+"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VScrollBar"]
-offset_left = 48.0
-offset_top = 56.0
-offset_right = 334.0
-offset_bottom = 329.0
-text = "hello there"
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 544.0
+offset_right = 841.0
+offset_bottom = 588.0
