@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 @onready
 var InputBox : TextEdit = $InputBox
@@ -25,8 +25,7 @@ func _on_join_game_pressed() -> void:
 	Lobby.join_game($Join/IP.text, int($Join/PORT.text))
 
 func _on_update_name_pressed() -> void:
-	pass # Replace with function body.
-
+	Lobby.player_info["name"] = $Name.text
 
 
 func _player_connected(peer_id : int, player_info):
