@@ -16,7 +16,7 @@ func _ready() -> void:
 	Lobby.player_disconnected.connect(_player_disconnected)
 	Lobby.server_disconnected.connect(_server_disconnected)
 	
-	Lobby.message_received.connect(_server_disconnected)
+	Lobby.message_received.connect(_got_message)
 	
 #func _process(delta: float) -> void:
 	#print("tick" + str(delta))
