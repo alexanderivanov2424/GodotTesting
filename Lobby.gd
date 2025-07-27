@@ -4,11 +4,11 @@ class_name Lobby
 # Autoload named Lobby
 
 # These signals can be connected to by a UI lobby scene or the game scene.
-signal player_connected(peer_id : int, player_info : PlayerInfo)
+signal player_connected(peer_id : int, player_info)
 signal player_disconnected(peer_id : int)
 signal server_disconnected
 
-signal message_received(player_info : PlayerInfo, message : String)
+signal message_received(player_info, message : String)
 
 const MAX_CONNECTIONS = 20
 
@@ -16,7 +16,7 @@ const MAX_CONNECTIONS = 20
 # with the keys being each player's unique IDs.
 var players = {}
 
-var player_info : PlayerInfo = PlayerInfo.new()
+var player_info = {"name" : "Name"}
 
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)
@@ -55,7 +55,7 @@ func _on_player_connected(id : int):
 	_register_player.rpc_id(id, player_info)
 
 @rpc("any_peer", "reliable")
-func _register_player(new_player_info : PlayerInfo):
+func _register_player(new_player_info):
 	var new_player_id = multiplayer.get_remote_sender_id()
 	players[new_player_id] = new_player_info
 	player_connected.emit(new_player_id, new_player_info)
@@ -84,5 +84,5 @@ func send_message(message : String):
 	_send_message.rpc(player_info, message)
 
 @rpc("any_peer", "reliable")
-func _send_message(sender : PlayerInfo, message : String):
+func _send_message(sender, message : String):
 	message_received.emit(sender, message)

@@ -34,8 +34,8 @@ func _on_update_name_pressed() -> void:
 	print("Name Updated")
 
 
-func _player_connected(peer_id : int, player_info : PlayerInfo):
-	print(str(peer_id) + " " + player_info.name + " connected!")
+func _player_connected(peer_id : int, player_info):
+	print(str(peer_id) + " " + player_info["name"] + " connected!")
 	
 func _player_disconnected(peer_id : int):
 	print(str(peer_id) + " disconnected!")
@@ -43,9 +43,9 @@ func _player_disconnected(peer_id : int):
 func _server_disconnected():
 	print("server closed")
 	
-func _got_message(player_info : PlayerInfo, message : String):
+func _got_message(player_info, message : String):
 	logs.append(message)
-	print("[ " + player_info.name + " ] " + message)
+	print("[ " + player_info["name"] + " ] " + message)
 
 
 func _on_send_button_pressed() -> void:
