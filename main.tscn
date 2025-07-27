@@ -14,7 +14,7 @@ script = ExtResource("1_0xm2m")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_0xm2m")
 
-[node name="LobbyNode" type="Node" parent="."]
+[node name="Lobby" type="Node" parent="."]
 script = ExtResource("2_h2yge")
 
 [node name="InputBox" type="TextEdit" parent="."]

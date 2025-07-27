@@ -7,7 +7,7 @@ var InputBox : TextEdit = $InputBox
 var ChatLog : RichTextLabel = $ChatLog
 
 @onready
-var Lobby : Node = $LobbyNode
+var Lobby : Node = $Lobby
 
 var logs : Array[String] = []
 
