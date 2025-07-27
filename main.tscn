@@ -5,14 +5,13 @@
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0xm2m"]
 properties/0/path = NodePath(".:text")
-properties/0/spawn = true
-properties/0/replication_mode = 1
+properties/0/spawn = false
+properties/0/replication_mode = 2
 
 [node name="Root" type="Node"]
 script = ExtResource("1_ig7tw")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-root_path = NodePath("../InputBox")
 replication_config = SubResource("SceneReplicationConfig_0xm2m")
 
 [node name="LobbyNode" type="Node" parent="."]
