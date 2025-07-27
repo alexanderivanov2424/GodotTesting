@@ -1,5 +1,4 @@
 extends Node
-class_name Lobby
 
 # Autoload named Lobby
 
@@ -81,10 +80,8 @@ func _on_server_disconnected():
 # ########################
 
 func send_message(message : String):
-	print("## sending message")
 	_send_message.rpc(player_info, message)
 
 @rpc("any_peer", "call_local", "reliable")
 func _send_message(sender, message : String):
-	print("## sending message rpc")
 	message_received.emit(sender, message)

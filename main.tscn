@@ -26,55 +26,6 @@ offset_left = 85.0
 offset_top = 137.0
 offset_right = 555.0
 offset_bottom = 512.0
-text = "hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-hello there
-"
 
 [node name="SendButton" type="Button" parent="."]
 offset_left = 790.0

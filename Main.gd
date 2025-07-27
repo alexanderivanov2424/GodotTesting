@@ -7,7 +7,7 @@ var InputBox : TextEdit = $InputBox
 var ChatLog : RichTextLabel = $ChatLog
 
 @onready
-var Lobby : Lobby = $LobbyNode
+var Lobby : Node = $LobbyNode
 
 var logs : Array[String] = []
 
@@ -45,10 +45,11 @@ func _server_disconnected():
 	
 func _got_message(player_info, message : String):
 	logs.append(message)
-	print("[ " + player_info["name"] + " ] " + message)
-
+	var message_line = "[ {player_name} ] {message} \n"
+	var formatting = {"player_name" : player_info["name"],	"message" : message}
+	ChatLog.text += message_line.format(formatting)
+	ChatLog.scroll_to_line(ChatLog.get_line_count())
 
 func _on_send_button_pressed() -> void:
-	print("Sending " + InputBox.text)
 	Lobby.send_message(InputBox.text)
 	InputBox.clear()
