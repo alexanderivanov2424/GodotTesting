@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djpuim0irbnix"]
 
-[ext_resource type="Script" uid="uid://b6e418hcnedil" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b6e418hcnedil" path="res://Main.gd" id="1_ig7tw"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -8,6 +8,7 @@ anchors_preset = 0
 script = ExtResource("1_ig7tw")
 
 [node name="InputBox" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 85.0
 offset_top = 537.0
 offset_right = 766.0
@@ -15,6 +16,7 @@ offset_bottom = 598.0
 text = "Type here"
 
 [node name="ChatLog" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 85.0
 offset_top = 137.0
 offset_right = 555.0
