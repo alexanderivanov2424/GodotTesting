@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djpuim0irbnix"]
 
-[ext_resource type="Script" uid="uid://b6e418hcnedil" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://batieeqhryskg" path="res://Main.gd" id="1_ig7tw"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -90,8 +90,9 @@ offset_bottom = 60.0
 layout_mode = 0
 offset_left = 12.0
 offset_top = 7.0
-offset_right = 194.0
+offset_right = 121.0
 offset_bottom = 42.0
+text = "7000"
 
 [node name="Button" type="Button" parent="Create"]
 layout_mode = 0
@@ -114,6 +115,7 @@ offset_left = 198.0
 offset_top = 7.0
 offset_right = 293.0
 offset_bottom = 42.0
+text = "7000"
 
 [node name="IP" type="TextEdit" parent="Join"]
 layout_mode = 0

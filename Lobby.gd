@@ -1,4 +1,5 @@
 extends Node
+class_name Lobby
 
 # Autoload named Lobby
 
@@ -7,8 +8,6 @@ signal player_connected(peer_id, player_info)
 signal player_disconnected(peer_id)
 signal server_disconnected
 
-const PORT = 7000
-const DEFAULT_SERVER_IP = "127.0.0.1" # IPv4 localhost
 const MAX_CONNECTIONS = 20
 
 # This will contain player info for every player,
@@ -33,17 +32,15 @@ func _ready():
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 
 
-func join_game(address = ""):
-	if address.is_empty():
-		address = DEFAULT_SERVER_IP
+func join_game(IP : String, PORT : int):
 	var peer = ENetMultiplayerPeer.new()
-	var error = peer.create_client(address, PORT)
+	var error = peer.create_client(IP, PORT)
 	if error:
 		return error
 	multiplayer.multiplayer_peer = peer
 
 
-func create_game():
+func create_game(PORT : int):
 	var peer = ENetMultiplayerPeer.new()
 	var error = peer.create_server(PORT, MAX_CONNECTIONS)
 	if error:
