@@ -16,7 +16,7 @@ const MAX_CONNECTIONS = 20
 # with the keys being each player's unique IDs.
 var players = {}
 
-var player_info : PlayerInfo
+var player_info : PlayerInfo = PlayerInfo.new()
 
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)
