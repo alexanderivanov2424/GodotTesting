@@ -53,5 +53,3 @@ func _on_send_button_pressed() -> void:
 	logs.append(InputBox.text)
 	Lobby.send_message(InputBox.text)
 	InputBox.clear()
-	
-	print(Lobby.players)

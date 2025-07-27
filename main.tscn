@@ -14,7 +14,6 @@ offset_left = 85.0
 offset_top = 537.0
 offset_right = 766.0
 offset_bottom = 598.0
-text = "Type here"
 
 [node name="ChatLog" type="RichTextLabel" parent="."]
 offset_left = 85.0
