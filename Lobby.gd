@@ -95,4 +95,5 @@ func update_name(new_name : String):
 
 @rpc("any_peer", "call_local", "reliable")
 func _update_name(peer_id : int, new_name : String):
-	players[peer_id]["name"] = new_name
+	if peer_id in players:
+		players[peer_id]["name"] = new_name
