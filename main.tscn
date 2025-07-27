@@ -4,9 +4,16 @@
 [ext_resource type="Script" uid="uid://df0wga3bm6hcy" path="res://Lobby.gd" id="2_0xm2m"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0xm2m"]
+properties/0/path = NodePath(".:text")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="Root" type="Node"]
 script = ExtResource("1_ig7tw")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+root_path = NodePath("../InputBox")
+replication_config = SubResource("SceneReplicationConfig_0xm2m")
 
 [node name="LobbyNode" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
@@ -16,9 +23,6 @@ offset_left = 85.0
 offset_top = 537.0
 offset_right = 766.0
 offset_bottom = 598.0
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="InputBox"]
-replication_config = SubResource("SceneReplicationConfig_0xm2m")
 
 [node name="ChatLog" type="RichTextLabel" parent="."]
 offset_left = 85.0
