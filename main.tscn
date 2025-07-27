@@ -1,18 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://djpuim0irbnix"]
+[gd_scene load_steps=3 format=3 uid="uid://djpuim0irbnix"]
 
 [ext_resource type="Script" uid="uid://di4423o2sjnk5" path="res://Main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://df0wga3bm6hcy" path="res://Lobby.gd" id="2_0xm2m"]
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_h2yge"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_ig7tw")
 
 [node name="LobbyNode" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_h2yge")
 
 [node name="InputBox" type="TextEdit" parent="."]
 offset_left = 85.0
