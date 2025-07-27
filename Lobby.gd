@@ -94,6 +94,5 @@ func update_name(new_name : String):
 	_update_name.rpc(peer_id, new_name)
 
 @rpc("any_peer", "call_local", "reliable")
-func _update_name(peer_id, new_name : String):
-	var sender = players[peer_id]
+func _update_name(peer_id : int, new_name : String):
 	players[peer_id]["name"] = new_name
