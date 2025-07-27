@@ -30,8 +30,7 @@ func _on_join_game_pressed() -> void:
 	print("Server Joined")
 
 func _on_update_name_pressed() -> void:
-	# Lobby.player_info["name"] = $Name.text
-	Lobby.player_info = {"name" : $Name.text}
+	Lobby.player_info["name"] = $Name.text
 	print("Name Updated")
 
 
@@ -45,13 +44,6 @@ func _server_disconnected():
 	print("server closed")
 	
 func _got_message(player_info, message : String):
-	
-	print("####")
-	for m in logs:
-		print(m)
-	print("####")
-	print()
-	
 	var message_line = "[ {player_name} ] {message} \n"
 	var formatting = {"player_name" : player_info["name"],	"message" : message}
 	ChatLog.text += message_line.format(formatting)

@@ -80,8 +80,20 @@ func _on_server_disconnected():
 # ########################
 
 func send_message(message : String):
-	_send_message.rpc(player_info, message)
+	var peer_id : int = multiplayer.get_unique_id()
+	_send_message.rpc(peer_id, message)
 
 @rpc("any_peer", "call_local", "reliable")
-func _send_message(sender, message : String):
+func _send_message(peer_id, message : String):
+	var sender = players[peer_id]
 	message_received.emit(sender, message)
+	
+func update_name(new_name : String):
+	player_info["name"] = new_name
+	var peer_id : int = multiplayer.get_unique_id()
+	_update_name.rpc(peer_id, new_name)
+
+@rpc("any_peer", "call_local", "reliable")
+func _update_name(peer_id, new_name : String):
+	var sender = players[peer_id]
+	players[peer_id]["name"] = new_name
