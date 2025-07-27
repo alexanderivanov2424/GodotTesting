@@ -25,11 +25,11 @@ func _on_join_game_pressed() -> void:
 	Lobby.join_game($Join/IP.text, int($Join/PORT.text))
 
 func _on_update_name_pressed() -> void:
-	Lobby.player_info["name"] = $Name.text
+	Lobby.player_info.name = $Name.text
 
 
-func _player_connected(peer_id : int, player_info):
-	print(str(peer_id) + player_info["name"] + " connected!")
+func _player_connected(peer_id : int, player_info : PlayerInfo):
+	print(str(peer_id) + player_info.name + " connected!")
 	
 func _player_disconnected(peer_id : int):
 	print(str(peer_id) + " disconnected!")
