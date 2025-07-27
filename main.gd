@@ -14,8 +14,8 @@ func _ready() -> void:
 	lobby.player_disconnected.connect(_player_disconnected)
 	lobby.server_disconnected.connect(_server_disconnected)
 	
-func _process(delta: float) -> void:
-	print("tick" + str(delta))
+#func _process(delta: float) -> void:
+	#print("tick" + str(delta))
 
 func _on_create_game_pressed() -> void:
 	lobby.create_game(int($Create/PORT.text))
