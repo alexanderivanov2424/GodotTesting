@@ -18,3 +18,11 @@ func _on_create_game_pressed() -> void:
 	pass # Replace with function body.
 	
 	
+
+
+func _on_join_game_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_update_name_pressed() -> void:
+	pass # Replace with function body.

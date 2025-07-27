@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djpuim0irbnix"]
 
-[ext_resource type="Script" uid="uid://b6e418hcnedil" path="res://Main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b6e418hcnedil" path="res://main.gd" id="1_ig7tw"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -131,6 +131,7 @@ offset_bottom = 39.0
 text = "JOIN"
 
 [node name="Name" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 787.0
 offset_top = 149.0
 offset_right = 969.0
@@ -138,6 +139,7 @@ offset_bottom = 184.0
 text = "Joe"
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 978.0
 offset_top = 151.0
 offset_right = 1064.0
@@ -145,3 +147,5 @@ offset_bottom = 182.0
 text = "UPDATE"
 
 [connection signal="pressed" from="Create/Button" to="." method="_on_create_game_pressed"]
+[connection signal="pressed" from="Join/Button" to="." method="_on_join_game_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_update_name_pressed"]
