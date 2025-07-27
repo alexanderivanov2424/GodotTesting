@@ -30,7 +30,8 @@ func _on_join_game_pressed() -> void:
 	print("Server Joined")
 
 func _on_update_name_pressed() -> void:
-	Lobby.player_info["name"] = $Name.text
+	# Lobby.player_info["name"] = $Name.text
+	Lobby.player_info = {"name" : $Name.text}
 	print("Name Updated")
 
 
