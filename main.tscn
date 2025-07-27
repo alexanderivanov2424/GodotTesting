@@ -81,6 +81,7 @@ offset_left = 790.0
 offset_top = 544.0
 offset_right = 841.0
 offset_bottom = 588.0
+text = "send"
 
 [node name="Create" type="Control" parent="."]
 layout_mode = 3
@@ -151,6 +152,7 @@ offset_right = 1064.0
 offset_bottom = 182.0
 text = "UPDATE"
 
+[connection signal="pressed" from="SendButton" to="." method="_on_send_button_pressed"]
 [connection signal="pressed" from="Create/Button" to="." method="_on_create_game_pressed"]
 [connection signal="pressed" from="Join/Button" to="." method="_on_join_game_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_update_name_pressed"]

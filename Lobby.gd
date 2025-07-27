@@ -8,6 +8,8 @@ signal player_connected(peer_id : int, player_info : PlayerInfo)
 signal player_disconnected(peer_id : int)
 signal server_disconnected
 
+signal message_received(player_info : PlayerInfo, message : String)
+
 const MAX_CONNECTIONS = 20
 
 # This will contain player info for every player,
@@ -74,3 +76,13 @@ func _on_server_disconnected():
 	multiplayer.multiplayer_peer = null
 	players.clear()
 	server_disconnected.emit()
+	
+	
+# ########################
+
+func send_message(message : String):
+	_send_message.rpc(player_info, message)
+
+@rpc("any_peer", "reliable")
+func _send_message(sender : PlayerInfo, message : String):
+	message_received.emit(sender, message)
