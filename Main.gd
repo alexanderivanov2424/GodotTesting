@@ -49,5 +49,6 @@ func _got_message(player_info, message : String):
 
 
 func _on_send_button_pressed() -> void:
+	print("Sending " + InputBox.text)
 	Lobby.send_message(InputBox.text)
 	InputBox.clear()
