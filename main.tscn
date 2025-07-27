@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://djpuim0irbnix"]
 
-[ext_resource type="Script" uid="uid://batieeqhryskg" path="res://Main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://e8nr1lkspqtk" path="res://Main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://df0wga3bm6hcy" path="res://Lobby.gd" id="2_0xm2m"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_h2yge"]
