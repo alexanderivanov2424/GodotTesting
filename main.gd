@@ -39,7 +39,9 @@ func _server_disconnected():
 	print("server closed")
 
 func _got_message(player_info: Dictionary, message: String):
-	chat.text += "[ %s ] %s \n" % [player_info["name"], message]
+	var chat_message := "[ %s ] %s" % [player_info["name"], message]
+	print(chat_message)
+	chat.text += chat_message + "\n"
 	chat.scroll_to_line(chat.get_line_count())
 
 func _on_send_button_pressed():
