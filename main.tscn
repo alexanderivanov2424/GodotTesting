@@ -1,13 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://djpuim0irbnix"]
+[gd_scene load_steps=2 format=3 uid="uid://djpuim0irbnix"]
 
 [ext_resource type="Script" uid="uid://di4423o2sjnk5" path="res://main.gd" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://df0wga3bm6hcy" path="res://lobby.gd" id="2_h2yge"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_0xm2m")
-
-[node name="Lobby" type="Node" parent="."]
-script = ExtResource("2_h2yge")
 
 [node name="InputBox" type="TextEdit" parent="."]
 offset_left = 85.0

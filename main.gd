@@ -4,7 +4,6 @@ var logs: Array[String] = []
 
 @onready var input: TextEdit = $InputBox
 @onready var chat: RichTextLabel = $ChatLog
-@onready var Lobby: Node = $Lobby
 
 func _ready() -> void:
 	Lobby.player_connected.connect(_player_connected)

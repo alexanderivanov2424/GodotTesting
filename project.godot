@@ -14,6 +14,10 @@ config/name="GodotTesting"
 run/main_scene="uid://djpuim0irbnix"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
+[autoload]
+
+Lobby="*res://lobby.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
