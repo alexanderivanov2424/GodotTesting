@@ -16,16 +16,17 @@ func _ready() -> void:
 	#print("tick" + str(delta))
 
 func _on_create_game_pressed() -> void:
-	Lobby.create_game(int($Create/PORT.text))
+	Lobby.create_game(_get_int($Create/PORT))
 	print("Server Created")
 
 func _on_join_game_pressed() -> void:
-	Lobby.join_game($Join/IP.text, int($Join/PORT.text))
+	Lobby.join_game(_get_str($Join/IP), _get_int($Join/PORT))
 	print("Server Joined")
 
 func _on_update_name_pressed() -> void:
-	Lobby.update_name($Name.text)
-	print("Name Updated")
+	var name := _get_str($Name)
+	Lobby.update_name(name)
+	print("Name Updated to %s" % name)
 
 
 func _player_connected(peer_id: int, player_info: Dictionary):
@@ -45,3 +46,12 @@ func _on_send_button_pressed():
 	logs.append(input.text)
 	Lobby.send_message(input.text)
 	input.clear()
+
+func _get_str(box: TextEdit) -> String:
+	var text := box.text
+	if not text:
+		text = box.placeholder_text
+	return text
+
+func _get_int(box: TextEdit) -> int:
+	return int(_get_str(box))
