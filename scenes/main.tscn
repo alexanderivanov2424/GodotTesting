@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://cb668tnbf32a3"]
+[gd_scene load_steps=2 format=3 uid="uid://cb668tnbf32a3"]
+
+[ext_resource type="PackedScene" uid="uid://djpuim0irbnix" path="res://scenes/lobby.tscn" id="1_o5qli"]
 
 [node name="Root" type="Node"]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("../MultiplayerRoot")
+
+[node name="Root" parent="." instance=ExtResource("1_o5qli")]
+
+[node name="MultiplayerRoot" type="Node" parent="."]
