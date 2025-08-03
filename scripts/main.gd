@@ -4,16 +4,13 @@ var logs: Array[String] = []
 
 @onready var input: TextEdit = $InputBox
 @onready var chat: RichTextLabel = $ChatLog
+@onready var players: RichTextLabel = $RightPane/Players
 
 func _ready() -> void:
 	Lobby.player_connected.connect(_player_connected)
 	Lobby.player_disconnected.connect(_player_disconnected)
 	Lobby.server_disconnected.connect(_server_disconnected)
-
 	Lobby.message_received.connect(_got_message)
-
-#func _process(delta: float) -> void:
-	#print("tick" + str(delta))
 
 func _on_create_game_pressed() -> void:
 	Lobby.create_game(_get_int($Create/PORT))
@@ -24,9 +21,9 @@ func _on_join_game_pressed() -> void:
 	print("Server Joined")
 
 func _on_update_name_pressed() -> void:
-	var name := _get_str($Name)
-	Lobby.update_name(name)
-	print("Name Updated to %s" % name)
+	var player_name := _get_str($Name)
+	Lobby.update_name(player_name)
+	print("Name Updated to %s" % player_name)
 
 func _player_connected(peer_id: int, player_info: Dictionary):
 	print("%d %s connected!" % [peer_id, player_info["name"]])
@@ -60,13 +57,13 @@ func _get_int(box: TextEdit) -> int:
 	return int(_get_str(box))
 
 func _update_active_players():
-	var player_status_text = ""
-	for player_id in Lobby.players.keys():
+	var player_status_text := ""
+	for player_id in Lobby.players:
 		var player_info = Lobby.players[player_id]
 		var ready_text = "[Ready]" if player_info["ready"] else "[ ... ]"
 		player_status_text += "%s %s\n" % [ready_text, player_info["name"]]
-		
-	$RightPane/Players.text = player_status_text
+
+	players.text = player_status_text
 
 func _on_ready_button_pressed():
 	Lobby.send_ready()

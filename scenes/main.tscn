@@ -7,8 +7,8 @@
 
 [node name="Root" type="Node"]
 script = ExtResource("1_0wfyh")
-game_scene = ExtResource("2_sugp2")
-player_scene = ExtResource("3_jyhfs")
+Map = ExtResource("2_sugp2")
+Player = ExtResource("3_jyhfs")
 
 [node name="Lobby" parent="." instance=ExtResource("1_o5qli")]
 

@@ -1,38 +1,36 @@
 extends Node
 
-@export var game_scene: PackedScene
+@export var Map: PackedScene
+@export var Player: PackedScene
 
-@export var player_scene: PackedScene
+@onready var map: Node = $Map
+@onready var players: Node = $Players
+@onready var map_spawner: MultiplayerSpawner = $MapSpawner
+@onready var player_spawner: MultiplayerSpawner = $PlayerSpawner
 
 func _ready() -> void:
 	Lobby.lobby_ready.connect(_start_game)
-	
-	$MapSpawner.add_spawnable_scene(game_scene.resource_path)
-	$PlayerSpawner.add_spawnable_scene(player_scene.resource_path)
-	
-	$PlayerSpawner.spawn_function = spawn_player
 
-func _start_game():	
-	var map_root = $Map
-	var player_root = $Players
-	
-	for c in map_root.get_children():
-		map_root.remove_child(c)
+	map_spawner.add_spawnable_scene(Map.resource_path)
+	player_spawner.add_spawnable_scene(Player.resource_path)
+	player_spawner.spawn_function = _spawn_player
+
+func _start_game():
+	for c in map.get_children():
+		map.remove_child(c)
 		c.queue_free()
-		
-	map_root.add_child(game_scene.instantiate())
-		
-	for c in player_root.get_children():
-		player_root.remove_child(c)
+
+	map.add_child(Map.instantiate())
+
+	for c in players.get_children():
+		players.remove_child(c)
 		c.queue_free()
-	
-	
+
 	for peer_id in Lobby.players:
-		$PlayerSpawner.spawn(peer_id)
-		
-		
-func spawn_player(data : Variant) -> Node:
-	var player : Player = player_scene.instantiate()
-	var peer_id = int(data)
+		player_spawner.spawn(peer_id)
+
+func _spawn_player(data: Variant) -> Node:
+	var peer_id := int(data)
+	var player: Player = Player.instantiate()
 	player.set_peer_id(peer_id)
 	return player
