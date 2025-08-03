@@ -7,7 +7,7 @@ class_name  Player
 var peer_id : int = -1 :
 	set(id):
 		peer_id = id
-		$ID.text = id
+		$ID.text = str(id)
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
