@@ -3,8 +3,7 @@ class_name  Player
 
 @export var speed = 400
 
-
-var peer_id : int = -1 :
+@export var peer_id : int = -1 :
 	set(id):
 		peer_id = id
 		$ID.text = str(id)
