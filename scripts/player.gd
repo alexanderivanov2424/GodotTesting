@@ -8,9 +8,12 @@ class_name  Player
 		print("setting %d" % id)
 		peer_id = id
 		$ID.text = str(id)
-		set_multiplayer_authority(id, true)
+		set_multiplayer_authority(peer_id)
 
-func _ready():
+func _enter_tree() -> void:
+	pass
+
+func _ready() -> void:
 	print("ready")
 	if peer_id == multiplayer.get_unique_id():
 		$Camera2D.make_current()
