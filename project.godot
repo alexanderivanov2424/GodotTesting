@@ -17,7 +17,6 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 [autoload]
 
 Lobby="*res://scripts/lobby.gd"
-Signaling="*res://scripts/webrtc/signaling.gd"
 
 [input]
 
