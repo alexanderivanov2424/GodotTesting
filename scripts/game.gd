@@ -8,6 +8,7 @@ func _ready() -> void:
 	Lobby.lobby_ready.connect(_start_game)
 	
 	$MultiplayerSpawner.add_spawnable_scene(game_scene.resource_path)
+	$MultiplayerSpawner.add_spawnable_scene(player_scene.resource_path)
 
 func _start_game():	
 	var multiplayer_root = $MultiplayerRoot
@@ -21,5 +22,4 @@ func _start_game():
 	for peer_id in Lobby.players:
 		var player : Player = player_scene.instantiate()
 		player.peer_id = peer_id
-		player.set_multiplayer_authority(peer_id)
 		multiplayer_root.add_child(player)

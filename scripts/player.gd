@@ -7,6 +7,7 @@ class_name  Player
 	set(id):
 		peer_id = id
 		$ID.text = str(id)
+		set_multiplayer_authority(id, true)
 		
 func _ready():
 	if peer_id == multiplayer.get_unique_id():
