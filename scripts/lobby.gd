@@ -32,9 +32,12 @@ func _ready():
 
 func join_game(ip: String, port: int):
 	var peer := WebSocketMultiplayerPeer.new()
-	var error := peer.create_client("wss://%s:%d" % [ip, port])
+	var url := "wss://%s:%d" % [ip, port]
+	print(url)
+	var error := peer.create_client(url)
 	if error:
 		return error
+	print("setting peer")
 	multiplayer.multiplayer_peer = peer
 
 func create_game(port: int):
@@ -54,10 +57,12 @@ func remove_multiplayer_peer():
 # When a peer connects, send them my player info.
 # This allows transfer of all desired data for each player, not only the unique ID.
 func _on_player_connected(id: int):
+	print("player %d connected" % id)
 	_register_player.rpc_id(id, player_info)
 
 @rpc("any_peer", "reliable")
 func _register_player(new_player_info: Dictionary):
+	print("registering player %s" % new_player_info["name"])
 	var new_player_id := multiplayer.get_remote_sender_id()
 	players[new_player_id] = new_player_info
 	player_connected.emit(new_player_id, new_player_info)
