@@ -11,8 +11,6 @@ extends Node
 func _ready() -> void:
 	Lobby.lobby_ready.connect(_start_game)
 
-	map_spawner.add_spawnable_scene(Map.resource_path)
-	player_spawner.add_spawnable_scene(Player.resource_path)
 	player_spawner.spawn_function = _spawn_player
 
 func _start_game():

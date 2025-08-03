@@ -13,11 +13,13 @@ Player = ExtResource("3_jyhfs")
 [node name="Lobby" parent="." instance=ExtResource("1_o5qli")]
 
 [node name="MapSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://dite38pdogq72")
 spawn_path = NodePath("../Map")
 
 [node name="Map" type="Node" parent="."]
 
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://wyabw0l8ydh2")
 spawn_path = NodePath("../Map")
 
 [node name="Players" type="Node" parent="."]
