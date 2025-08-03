@@ -5,16 +5,12 @@ var logs: Array[String] = []
 @onready var input: TextEdit = $InputBox
 @onready var chat: RichTextLabel = $ChatLog
 
-@export var game_scene: PackedScene
-
 func _ready() -> void:
 	Lobby.player_connected.connect(_player_connected)
 	Lobby.player_disconnected.connect(_player_disconnected)
 	Lobby.server_disconnected.connect(_server_disconnected)
 
 	Lobby.message_received.connect(_got_message)
-	
-	Lobby.lobby_ready.connect(_start_game)
 
 #func _process(delta: float) -> void:
 	#print("tick" + str(delta))
@@ -74,6 +70,3 @@ func _update_active_players():
 
 func _on_ready_button_pressed():
 	Lobby.send_ready()
-	
-func _start_game():
-	get_tree().change_scene_to_packed(game_scene)
