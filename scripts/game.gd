@@ -9,6 +9,9 @@ func _ready() -> void:
 	
 	$MultiplayerSpawner.add_spawnable_scene(game_scene.resource_path)
 	$MultiplayerSpawner.add_spawnable_scene(player_scene.resource_path)
+	$MultiplayerSpawner.add_spawnable_scene(player_scene.resource_path)
+	$MultiplayerSpawner.add_spawnable_scene(player_scene.resource_path)
+	$MultiplayerSpawner.add_spawnable_scene(player_scene.resource_path)
 
 func _start_game():	
 	var multiplayer_root = $MultiplayerRoot
