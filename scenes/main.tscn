@@ -40,7 +40,7 @@ offset_right = 121.0
 offset_bottom = 42.0
 placeholder_text = "7000"
 
-[node name="Button" type="Button" parent="Create"]
+[node name="CreateLobbyButton" type="Button" parent="Create"]
 layout_mode = 0
 offset_left = 264.0
 offset_top = 8.0
@@ -72,7 +72,7 @@ offset_right = 194.0
 offset_bottom = 42.0
 placeholder_text = "127.0.0.1"
 
-[node name="Button" type="Button" parent="Join"]
+[node name="JoinLobbyButton" type="Button" parent="Join"]
 layout_mode = 0
 offset_left = 299.0
 offset_top = 8.0
@@ -87,14 +87,35 @@ offset_right = 969.0
 offset_bottom = 184.0
 placeholder_text = "Joe"
 
-[node name="Button" type="Button" parent="."]
+[node name="NameUpdateButton" type="Button" parent="."]
 offset_left = 978.0
 offset_top = 151.0
 offset_right = 1064.0
 offset_bottom = 182.0
 text = "UPDATE"
 
+[node name="RightPane" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 847.0
+offset_top = 220.0
+offset_right = 1149.0
+offset_bottom = 598.0
+
+[node name="Players" type="RichTextLabel" parent="RightPane"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 276.0
+offset_bottom = 239.0
+
+[node name="StartButton" type="Button" parent="RightPane"]
+offset_left = 79.0
+offset_top = 277.0
+offset_right = 219.0
+offset_bottom = 351.0
+
 [connection signal="pressed" from="SendButton" to="." method="_on_send_button_pressed"]
-[connection signal="pressed" from="Create/Button" to="." method="_on_create_game_pressed"]
-[connection signal="pressed" from="Join/Button" to="." method="_on_join_game_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_update_name_pressed"]
+[connection signal="pressed" from="Create/CreateLobbyButton" to="." method="_on_create_game_pressed"]
+[connection signal="pressed" from="Join/JoinLobbyButton" to="." method="_on_join_game_pressed"]
+[connection signal="pressed" from="NameUpdateButton" to="." method="_on_update_name_pressed"]
