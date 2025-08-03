@@ -18,7 +18,7 @@ const SERVER_ID = 1
 var players: Dictionary[int, Dictionary] = {}
 
 # This is the local player info.
-var player_info: Dictionary = {"name": "Name"}
+var player_info: Dictionary = {"name": "Name", "ready": false}
 
 var ready_player_count = 0
 
@@ -101,13 +101,23 @@ func _update_name(peer_id: int, new_name: String):
 		players[peer_id]["name"] = new_name
 		
 func send_ready():
-	_send_ready.rpc_id(1)
+	var peer_id := multiplayer.get_unique_id()
+	_send_ready.rpc_id(SERVER_ID)
 
 @rpc("any_peer", "call_local", "reliable")
-func _send_ready(peer_id: int):
-	# TODO avoid same person connecting twice
+func _send_ready():
+	var peer_id : int = multiplayer.get_remote_sender_id()
 	if multiplayer.is_server():
-		ready_player_count += 1
+		
+		if !players[peer_id]["ready"]:
+			ready_player_count += 1
+			players[peer_id]["ready"] = true
+		
 		if (ready_player_count == players.size()):
 			lobby_ready.emit()
-			ready_player_count = 0
+			_clear_players_ready_state()
+				
+func _clear_players_ready_state():
+	ready_player_count = 0
+	for p in players:
+		players[p]["ready"] = false
