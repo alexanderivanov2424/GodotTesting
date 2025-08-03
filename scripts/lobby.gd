@@ -35,7 +35,9 @@ func join_game(ip: String, port: int):
 	var error := peer.create_client(ip, port)
 	if error:
 		return error
-	multiplayer.multiplayer_peer = peer
+
+	players[peer.get_unique_id()] = player_info
+	player_connected.emit(peer.get_unique_id(), player_info)
 
 func create_game(port: int):
 	var peer := ENetMultiplayerPeer.new()
@@ -107,6 +109,7 @@ func send_ready():
 @rpc("any_peer", "call_local", "reliable")
 func _send_ready():
 	var peer_id : int = multiplayer.get_remote_sender_id()
+	ready_player_count = players.size()
 	if multiplayer.is_server():
 		
 		if !players[peer_id]["ready"]:
