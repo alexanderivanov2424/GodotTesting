@@ -67,7 +67,8 @@ func _update_active_players():
 	var player_status_text = ""
 	for player_id in Lobby.players.keys():
 		var player_info = Lobby.players[player_id]
-		player_status_text += player_info["name"] + "\n"
+		var ready_text = "[Ready]" if player_info["ready"] else "[ ... ]"
+		player_status_text += "%s %s\n" % [ready_text, player_info["name"]]
 		
 	$RightPane/Players.text = player_status_text
 
