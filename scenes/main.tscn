@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://djpuim0irbnix"]
+[gd_scene load_steps=3 format=3 uid="uid://djpuim0irbnix"]
 
 [ext_resource type="Script" uid="uid://di4423o2sjnk5" path="res://scripts/main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dite38pdogq72" path="res://scenes/map.tscn" id="2_0wfyh"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_0xm2m")
+game_scene = ExtResource("2_0wfyh")
 
 [node name="InputBox" type="TextEdit" parent="."]
 offset_left = 85.0
@@ -109,13 +111,15 @@ offset_top = 22.0
 offset_right = 276.0
 offset_bottom = 239.0
 
-[node name="StartButton" type="Button" parent="RightPane"]
+[node name="ReadyButton" type="Button" parent="RightPane"]
 offset_left = 79.0
 offset_top = 277.0
 offset_right = 219.0
 offset_bottom = 351.0
+text = "Ready!"
 
 [connection signal="pressed" from="SendButton" to="." method="_on_send_button_pressed"]
 [connection signal="pressed" from="Create/CreateLobbyButton" to="." method="_on_create_game_pressed"]
 [connection signal="pressed" from="Join/JoinLobbyButton" to="." method="_on_join_game_pressed"]
 [connection signal="pressed" from="NameUpdateButton" to="." method="_on_update_name_pressed"]
+[connection signal="pressed" from="RightPane/ReadyButton" to="." method="_on_ready_button_pressed"]

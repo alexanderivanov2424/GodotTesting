@@ -8,6 +8,8 @@ signal player_disconnected(peer_id: int)
 signal server_disconnected
 signal message_received(player_info: Dictionary, message: String)
 
+signal lobby_ready
+
 const MAX_CONNECTIONS = 20
 const SERVER_ID = 1
 
@@ -17,6 +19,8 @@ var players: Dictionary[int, Dictionary] = {}
 
 # This is the local player info.
 var player_info: Dictionary = {"name": "Name"}
+
+var ready_player_count = 0
 
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)
@@ -95,3 +99,15 @@ func update_name(new_name: String):
 func _update_name(peer_id: int, new_name: String):
 	if peer_id in players:
 		players[peer_id]["name"] = new_name
+		
+func send_ready():
+	_send_ready.rpc_id(1)
+
+@rpc("any_peer", "call_local", "reliable")
+func _send_ready(peer_id: int):
+	# TODO avoid same person connecting twice
+	if multiplayer.is_server():
+		ready_player_count += 1
+		if (ready_player_count == players.size()):
+			lobby_ready.emit()
+			ready_player_count = 0
