@@ -14,7 +14,7 @@ func _ready() -> void:
 
 	Lobby.message_received.connect(_got_message)
 	
-	Lobby.lobby_ready.connect(_start_game())
+	Lobby.lobby_ready.connect(_start_game)
 
 #func _process(delta: float) -> void:
 	#print("tick" + str(delta))
