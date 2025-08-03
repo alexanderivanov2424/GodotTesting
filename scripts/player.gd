@@ -5,11 +5,13 @@ class_name  Player
 
 @export var peer_id : int = -1 :
 	set(id):
+		print("setting %d" % id)
 		peer_id = id
 		$ID.text = str(id)
 		set_multiplayer_authority(id, true)
 		
 func _ready():
+	print("ready")
 	if peer_id == multiplayer.get_unique_id():
 		$Camera2D.make_current()
 
