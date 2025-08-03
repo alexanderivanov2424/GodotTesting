@@ -112,6 +112,7 @@ offset_right = 276.0
 offset_bottom = 239.0
 
 [node name="ReadyButton" type="Button" parent="RightPane"]
+layout_mode = 0
 offset_left = 79.0
 offset_top = 277.0
 offset_right = 219.0
