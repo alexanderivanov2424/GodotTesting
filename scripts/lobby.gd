@@ -30,17 +30,15 @@ func _ready():
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 
 func join_game(ip: String, port: int):
-	var peer := WebSocketMultiplayerPeer.new()
-	var url := "wss://%s:%d" % [ip, port]
-	print(url)
-	var error := peer.create_client(url)
+	var peer := ENetMultiplayerPeer.new()
+	var error := peer.create_client(ip, port)
 	if error:
 		return error
 	print("setting peer")
 	multiplayer.multiplayer_peer = peer
 
 func create_game(port: int):
-	var peer := WebSocketMultiplayerPeer.new()
+	var peer := ENetMultiplayerPeer.new()
 	var error := peer.create_server(port)
 	if error:
 		return error
