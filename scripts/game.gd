@@ -25,4 +25,4 @@ func _start_game():
 	for peer_id in Lobby.players:
 		var player : Player = player_scene.instantiate()
 		player.peer_id = peer_id
-		multiplayer_root.add_child(player)
+		multiplayer_root.add_child(player, true)
