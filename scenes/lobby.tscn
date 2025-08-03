@@ -1,16 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb668tnbf32a3"]
+[gd_scene load_steps=3 format=3 uid="uid://djpuim0irbnix"]
 
 [ext_resource type="Script" uid="uid://di4423o2sjnk5" path="res://scripts/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dite38pdogq72" path="res://scenes/map.tscn" id="2_0wfyh"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0wfyh"]
-
 [node name="Root" type="Node"]
 script = ExtResource("1_0xm2m")
 game_scene = ExtResource("2_0wfyh")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_0wfyh")
 
 [node name="InputBox" type="TextEdit" parent="."]
 offset_left = 85.0

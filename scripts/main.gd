@@ -75,6 +75,5 @@ func _update_active_players():
 func _on_ready_button_pressed():
 	Lobby.send_ready()
 	
-	
 func _start_game():
 	get_tree().change_scene_to_packed(game_scene)
