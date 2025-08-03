@@ -22,3 +22,7 @@ polygon = PackedVector2Array(0, 4, 4, 4, 4, 0, 0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u8vuu")
+
+[node name="ID" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

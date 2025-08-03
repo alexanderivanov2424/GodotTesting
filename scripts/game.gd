@@ -2,6 +2,8 @@ extends Node
 
 @export var game_scene: PackedScene
 
+@export var player_scene: PackedScene
+
 func _ready() -> void:
 	Lobby.lobby_ready.connect(_start_game)
 	
@@ -15,3 +17,9 @@ func _start_game():
 		c.queue_free()
 		
 	multiplayer_root.add_child(game_scene.instantiate())
+	
+	for peer_id in Lobby.players:
+		var player : Player = player_scene.instantiate()
+		player.peer_id = peer_id
+		player.set_multiplayer_authority(peer_id)
+		multiplayer_root.add_child(player)
