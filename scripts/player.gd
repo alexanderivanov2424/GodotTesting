@@ -10,7 +10,7 @@ class_name  Player
 		
 func _ready():
 	if peer_id == multiplayer.get_unique_id():
-		$Camera2D.current = true
+		$Camera2D.make_current()
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
