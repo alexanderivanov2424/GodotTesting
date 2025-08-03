@@ -18,5 +18,6 @@ func get_input():
 	velocity = input_direction * speed
 
 func _physics_process(delta):
-	get_input()
-	move_and_slide()
+	if peer_id == multiplayer.get_unique_id():
+		get_input()
+		move_and_slide()
