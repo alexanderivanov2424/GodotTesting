@@ -3,12 +3,13 @@ class_name  Player
 
 @export var speed = 400
 
-@export var peer_id : int = -1 :
-	set(id):
-		print("setting %d" % id)
-		peer_id = id
-		$ID.text = str(id)
-		set_multiplayer_authority(peer_id)
+@export var peer_id : int = -1
+
+func set_peer_id(peer_id : int):
+	print("setting %d" % peer_id)
+	self.peer_id = peer_id
+	$ID.text = str(peer_id)
+	set_multiplayer_authority(peer_id)
 
 func _enter_tree() -> void:
 	pass
