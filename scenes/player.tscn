@@ -29,3 +29,5 @@ shape = SubResource("RectangleShape2D_u8vuu")
 [node name="ID" type="RichTextLabel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
