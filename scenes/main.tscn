@@ -1,19 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb668tnbf32a3"]
+[gd_scene load_steps=6 format=3 uid="uid://cb668tnbf32a3"]
 
 [ext_resource type="Script" uid="uid://b1c52bxn3jsqa" path="res://scripts/game.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://djpuim0irbnix" path="res://scenes/lobby.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dite38pdogq72" path="res://scenes/map.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://wyabw0l8ydh2" path="res://scenes/player.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dssdho7wxjmwd" path="res://scenes/bullet.tscn" id="4_tbgi4"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_0wfyh")
 Map = ExtResource("2_sugp2")
 Player = ExtResource("3_jyhfs")
+Bullet = ExtResource("4_tbgi4")
 
 [node name="Lobby" parent="." instance=ExtResource("1_o5qli")]
 
 [node name="Spawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("uid://dite38pdogq72", "uid://wyabw0l8ydh2")
+_spawnable_scenes = PackedStringArray("uid://dite38pdogq72", "uid://wyabw0l8ydh2", "uid://dssdho7wxjmwd")
 spawn_path = NodePath("../SpawnPoint")
 
 [node name="SpawnPoint" type="Node" parent="."]

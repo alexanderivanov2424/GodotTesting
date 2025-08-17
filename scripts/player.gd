@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var Bullet: PackedScene
+
 @export var speed := 400
 
 # Set by the authority, synchronized on spawn.
@@ -22,3 +24,8 @@ func _physics_process(_delta):
 func get_input():
 	var input_direction := Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
+	if Input.is_action_just_pressed("shoot"):
+		var bullet := Bullet.instantiate()
+		bullet.position = position
+		$"..".add_child(bullet, true)
+		#$/root/Root._add_bullet.rpc_id(1)

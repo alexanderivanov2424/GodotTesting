@@ -2,6 +2,7 @@ extends Node
 
 @export var Map: PackedScene
 @export var Player: PackedScene
+@export var Bullet: PackedScene
 
 @onready var spawner: MultiplayerSpawner = $Spawner
 @onready var spawn_point: Node = $SpawnPoint
@@ -16,7 +17,14 @@ func _ready() -> void:
 		return player
 
 func _start_game():
-	spawn_point.add_child(Map.instantiate())
+	print("Game start")
+	spawn_point.add_child(Map.instantiate(), true)
 
 	for peer_id in Lobby.players:
 		spawner.spawn(peer_id)
+
+@rpc("any_peer", "call_local", "reliable")
+func _add_bullet():
+	print("Shoot!")
+	spawn_point.add_child(Bullet.instantiate(), true)
+	print("Shots Fired!")

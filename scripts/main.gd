@@ -67,3 +67,4 @@ func _update_active_players():
 
 func _on_ready_button_pressed():
 	Lobby.send_ready()
+	$RightPane/ReadyButton.release_focus()
