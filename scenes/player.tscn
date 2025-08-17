@@ -1,33 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://wyabw0l8ydh2"]
+[gd_scene load_steps=6 format=3 uid="uid://wyabw0l8ydh2"]
 
 [ext_resource type="Script" uid="uid://hqgjhm5wq6m2" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://b2825hfk7g81p" path="res://scenes/player_position.gd" id="2_g2els"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3vyb7"]
-properties/0/path = NodePath(".:id")
+properties/0/path = NodePath(".:position")
 properties/0/spawn = true
-properties/0/replication_mode = 0
-properties/1/path = NodePath(".:position")
-properties/1/spawn = true
-properties/1/replication_mode = 2
+properties/0/replication_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g2els"]
+properties/0/path = NodePath(".:id")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+
+[node name="Player" type="Node"]
 script = ExtResource("1_3vyb7")
 
-[node name="PlayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="PlayerPosition" type="CharacterBody2D" parent="."]
+script = ExtResource("2_g2els")
+
+[node name="PlayerPositionSynchronizer" type="MultiplayerSynchronizer" parent="PlayerPosition"]
 replication_config = SubResource("SceneReplicationConfig_3vyb7")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="PlayerPosition"]
 position = Vector2(-11, -11)
 scale = Vector2(5.5, 5.5)
 polygon = PackedVector2Array(0, 4, 4, 4, 4, 0, 0, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPosition"]
 shape = SubResource("RectangleShape2D_u8vuu")
 disabled = true
 
-[node name="ID" type="RichTextLabel" parent="."]
+[node name="ID" type="RichTextLabel" parent="PlayerPosition"]
 offset_left = 14.0
 offset_top = -12.0
 offset_right = 155.0
@@ -35,4 +41,7 @@ offset_bottom = 13.0
 text = "<unset ID>"
 scroll_active = false
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="PlayerPosition"]
+
+[node name="PlayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_g2els")

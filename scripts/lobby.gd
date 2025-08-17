@@ -48,10 +48,6 @@ func create_game(port: int):
 	players[SERVER_ID] = player_info
 	player_connected.emit(SERVER_ID, player_info)
 
-func remove_multiplayer_peer():
-	multiplayer.multiplayer_peer = null
-	players.clear()
-
 # When a peer connects, send them my player info.
 # This allows transfer of all desired data for each player, not only the unique ID.
 func _on_player_connected(id: int):

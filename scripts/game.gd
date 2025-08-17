@@ -16,4 +16,5 @@ func _start_game():
 		player.id = peer_id
 
 		spawn_point.add_child(player, true)
-		player.set_multiplayer_authority(peer_id)
+		#player.set_authority.rpc(peer_id)
+		#player.set_multiplayer_authority(peer_id)
